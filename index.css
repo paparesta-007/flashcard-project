@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+    :root {
+    --color-text: #ffffff;
+    --color-background: #000000;
+    --color-border: #ffffff;
+    }
+
+    body {
+    font-family: "Oswald";
+    font-weight: 300;
+    background-size: cover;
+    background-image: url(./Img/image1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    display: flex;
+    overflow: hidden;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    .flashcard-container {
+    width: 350px;
+    height: 230px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    .flashcard {
+    font-size: 15pt;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    }
+
+    .flashcard.flipped {
+    transform: rotateY(180deg);
+    }
+   
+    .front,
+    .back {
+    word-break: normal !important;
+    white-space: normal;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0px 5px 1px rgba(0, 0, 0, 0.5);
+    color: var(--color-text);
+    box-sizing: border-box;
+    
+    }
+
+    .back {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter !important;
+    font-size: 11pt;
+    transform: rotateY(180deg);
+    }
+
+    .controls {
+    width: 100%;
+    display: flex;
+    margin-top: 20%;
+    align-items: center;
+    }
+
+    button {
+    background-color: #3700b3;
+    color: var(--color-text);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    }
+
+    button:hover {
+    background-color: #5600e8;
+    }
+
+    #AllQuestion,
+    #bgSwitchBtn,
+    #nextBtn,
+    #bgAudio,
+    #bgFile,#btnShowMoreButton {
+    background-color: transparent;
+    border: none !important;
+    transition: all 0.3s !important;
+    }
+    #bgSwitchBtn,
+    #bgAudio,
+    #AllQuestion:focus,
+    #AllQuestion:active,
+    #bgSwitchBtn:active,
+    #bgSwitchBtn:focus,
+    #nextBtn:focus,
+    #nextBtn:active,
+    #bgAudio:active,
+    #bgAudio:focus,
+    #bgFile:active,
+    #bgFile:focus,#btnShowMoreButton:active,#btnShowMoreButton:focus {
+    outline: none !important;
+    box-shadow: none;
+    }
+    #bgSwitchBtn,
+    #AllQuestion,
+    #bgAudio,
+    #bgFile {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #bgSwitchBtn.show,
+    #AllQuestion.show,
+    #bgAudio.show,
+    #bgFile.show {
+    opacity: 1;
+    visibility: visible;
+    }
+
+    #nextBtn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 50px !important;
+    }
+
+    #nextBtn:hover {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    #AllQuestion:hover,#bgSwitchBtn:hover,
+    #bgAudio:hover,#bgFile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    ul {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+    color: var(--color-text) !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    height: 400px;
+    width: 600px;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    }
+
+    a {
+    color: var(--color-text) !important;
+    }
+
+    li:hover,
+    li:focus,
+    li:active,
+    a:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .star {
+    position: absolute;
+    background: linear-gradient(to bottom, #ffffff, rgb(78, 102, 126));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 10px;
+    animation: twinkle-shrink 4.5s forwards;
+    }
+
+    .menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    }
+
+    .background-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    }
+
+    ::-webkit-scrollbar {
+    width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    }
+
+    .animationChangeFlashcard {
+    animation: changeFlashcard 0.5s ease-out;
+    }
+
+    @keyframes twinkle-shrink {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    }
+
+    @keyframes changeFlashcard {
+    0% {
+        transform: translatey(-20%);
+    }
+    100% {
+        transform: translatey(0%);
+    }
+    }
