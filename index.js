@@ -32,7 +32,7 @@ window.onload = function () {
 
   bgFile.addEventListener("click", function () {
     console.log("bgFile");
-    window.open("./Notes/STORIA 17-21.docx","_blak");
+    window.open("./Notes/Oliver_Twist.pdf","_blank");
   })
 
   audio.currentTime = randomTime;
