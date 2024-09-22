@@ -38,90 +38,204 @@ window.onload = function () {
   audio.currentTime = randomTime;
 
   const flashcards = [
-    // HTML
     {
-      question: "Qual è la differenza tra i tag `<article>` e `<section>` in HTML5 e come dovrebbero essere utilizzati correttamente?",
-      answer: "`<article>` rappresenta un contenuto autonomo e indipendente, come un post di blog o un articolo, mentre `<section>` rappresenta una sezione tematica di un documento, come un capitolo o un gruppo di contenuti correlati."
+      question: "Where was Oliver Twist born?",
+      answer: "Oliver Twist was born in the workhouse."
     },
     {
-      question: "In HTML5, come si gestisce l'accessibilità per i contenuti video e audio?",
-      answer: "Utilizzando i tag `<video>` e `<audio>` con attributi come `controls`, `autoplay`, e `loop`, e fornendo trascrizioni e sottotitoli tramite `<track>`."
+      question: "How did Mr. Bumble choose Oliver's surname?",
+      answer: "Mr. Bumble decided to give Oliver the surname 'Twist' based on alphabetical order."
     },
     {
-      question: "Come si utilizza l'attributo `data-*` in HTML5 e quali sono le sue applicazioni pratiche?",
-      answer: "L'attributo `data-*` è usato per memorizzare dati personalizzati sugli elementi HTML. Può essere utilizzato per associare dati non visibili all'utente e accedervi tramite JavaScript."
-    },
-  
-    // CSS
-    {
-      question: "Come si implementano le animazioni complesse in CSS3 utilizzando `@keyframes`?",
-      answer: "Definendo una regola `@keyframes` che specifica le fasi dell'animazione e utilizzando la proprietà `animation` per applicare l'animazione a un elemento con i parametri di durata, ritardo e velocità."
+      question: "Why did Oliver ask for more soup?",
+      answer: "The boys in the workhouse decided that someone should ask for more soup, and Oliver was chosen."
     },
     {
-      question: "Qual è la differenza tra `flex: 1` e `flex: auto` in CSS Flexbox?",
-      answer: "`flex: 1` assegna lo spazio disponibile in modo equo tra gli elementi, mentre `flex: auto` consente a un elemento di crescere e restringersi in base al suo contenuto e allo spazio disponibile."
+      question: "What happened to Oliver after he asked for more soup?",
+      answer: "The master hit him and locked him in a dark room. A sign offering 5 pounds for Oliver was posted."
     },
     {
-      question: "Come si utilizza la proprietà `grid-template-areas` in CSS Grid e quali sono i suoi vantaggi?",
-      answer: "La proprietà `grid-template-areas` consente di definire un layout a griglia utilizzando nomi di aree, semplificando la creazione di layout complessi e migliorando la leggibilità del codice CSS."
-    },
-  
-    // JavaScript
-    {
-      question: "Come funziona il meccanismo di 'Event Delegation' in JavaScript e quali sono i suoi vantaggi?",
-      answer: "Event Delegation sfrutta la propagazione degli eventi (bubbling) per gestire eventi su elementi figli tramite un elemento genitore. Questo riduce il numero di listener e migliora le prestazioni."
+      question: "Who decided to take Oliver after the sign was posted?",
+      answer: "Mr. Sowerberry, a man who made coffins, decided to take Oliver."
     },
     {
-      question: "Qual è la differenza tra `Promise.all` e `Promise.race` in JavaScript?",
-      answer: "`Promise.all` restituisce una singola promessa che si risolve quando tutte le promesse nell'array sono risolte, mentre `Promise.race` restituisce una promessa che si risolve o si rigetta non appena una delle promesse nell'array è risolta o rigettata."
+      question: "Where did Mr. Bumble take Oliver after Mr. Sowerberry agreed to take him?",
+      answer: "Mr. Bumble took Oliver to Mr. Sowerberry's house, where he was pushed into a dark room and fed from a dog's plate."
     },
     {
-      question: "Come funziona il 'Prototypal Inheritance' in JavaScript e quali sono i suoi vantaggi rispetto alla 'Classical Inheritance'?",
-      answer: "Il 'Prototypal Inheritance' consente agli oggetti di ereditare direttamente da altri oggetti, facilitando la creazione di oggetti basati su prototipi piuttosto che classi, e permettendo una maggiore flessibilità nella creazione di oggetti e nella loro modifica dinamica."
-    },
-  
-    // SQL
-    {
-      question: "Come ottimizzare le query SQL complesse utilizzando indici e quali sono le implicazioni sul performance tuning?",
-      answer: "Gli indici possono accelerare le query migliorando la ricerca e l'ordinamento, ma possono rallentare le operazioni di scrittura e aumentare l'uso dello spazio su disco. È importante bilanciare la creazione di indici con le necessità di performance."
+      question: "Who made Oliver's life unpleasant at Mr. Sowerberry's house?",
+      answer: "Noah, another boy working for Mr. Sowerberry, made Oliver's life unpleasant."
     },
     {
-      question: "Come si gestisce la concorrenza nelle transazioni SQL e quali sono le differenze tra i livelli di isolamento 'READ COMMITTED' e 'SERIALIZABLE'?",
-      answer: "La concorrenza si gestisce tramite i livelli di isolamento delle transazioni. 'READ COMMITTED' consente di leggere solo dati confermati, evitando letture sporche, mentre 'SERIALIZABLE' garantisce la completa serializzazione delle transazioni, evitando tutte le anomalie di concorrenza."
+      question: "Why did Oliver attack Noah?",
+      answer: "Oliver attacked Noah after Noah insulted his dead mother."
     },
     {
-      question: "Quali sono le differenze tra una 'view' e una 'materialized view' in SQL e come influiscono sulle performance delle query?",
-      answer: "Una 'view' è una vista virtuale dei dati che non memorizza i risultati, mentre una 'materialized view' memorizza i risultati fisicamente e può migliorare le performance delle query ma richiede aggiornamenti periodici."
-    },
-  
-    // React
-    {
-      question: "Qual è il concetto di 'Reconciliation' in React e come influisce sulle prestazioni del rendering dei componenti?",
-      answer: "La 'Reconciliation' è il processo con cui React aggiorna il DOM virtuale e il DOM reale in modo efficiente, riducendo al minimo le modifiche al DOM e migliorando le prestazioni del rendering attraverso l'algoritmo di diffing."
+      question: "What did Mr. Bumble say was the reason for Oliver's bad behavior?",
+      answer: "Mr. Bumble said Oliver's bad behavior was because they fed him meat instead of soup, as in the workhouse."
     },
     {
-      question: "Come si gestisce lo stato globale in un'applicazione React utilizzando Redux e quali sono i principi fondamentali della sua architettura?",
-      answer: "Redux gestisce lo stato globale utilizzando un store centralizzato, con azioni che descrivono le modifiche allo stato e reducer che aggiornano lo stato in risposta alle azioni, seguendo il principio dell'immutabilità dello stato."
+      question: "How did Oliver escape from Mr. Sowerberry's house?",
+      answer: "Oliver escaped through a window."
     },
     {
-      question: "Qual è la differenza tra i 'context' e 'props drilling' in React e come il Context API può semplificare la gestione dello stato?",
-      answer: "Il 'context' permette di passare dati attraverso l'albero dei componenti senza passare esplicitamente le props, mentre il 'props drilling' richiede di passare le props attraverso ogni livello dell'albero. Il Context API semplifica la gestione dello stato globale evitando il 'props drilling'."
-    },
-  
-    // Altri
-    {
-      question: "Come funziona il modello di sicurezza 'Same-Origin Policy' e quali sono le sue implicazioni per le richieste cross-origin?",
-      answer: "La 'Same-Origin Policy' impedisce a documenti o script provenienti da una sorgente diversa di accedere ai dati di un altro dominio, proteggendo dalle vulnerabilità di sicurezza come il Cross-Site Scripting (XSS). Per le richieste cross-origin, si utilizzano le intestazioni CORS per consentire l'accesso."
+      question: "Who did Oliver meet near the workhouse after his escape?",
+      answer: "Oliver met his friend Dick near the workhouse."
     },
     {
-      question: "Qual è il ruolo dei 'Web Workers' in JavaScript e come possono migliorare le performance delle applicazioni web?",
-      answer: "I 'Web Workers' eseguono script in background, separati dal thread principale, permettendo l'esecuzione di operazioni intensive senza bloccare l'interfaccia utente e migliorando le performance complessive dell'applicazione web."
+      question: "Where was Oliver heading after meeting Dick?",
+      answer: "Oliver was heading to London."
     },
     {
-      question: "Come funziona il processo di 'Server-Side Rendering' (SSR) in React e quali sono i suoi vantaggi rispetto al 'Client-Side Rendering' (CSR)?",
-      answer: "Il 'Server-Side Rendering' genera HTML sul server prima di inviarlo al client, migliorando i tempi di caricamento iniziale e la SEO. Al contrario, il 'Client-Side Rendering' genera HTML direttamente nel browser, potendo risultare più lento all'avvio."
+      question: "Who did Oliver meet when he arrived in Barnet?",
+      answer: "Oliver met Jack Dawkins, also known as 'The Artful Dodger.'"
+    },
+    {
+      question: "Where did Jack take Oliver after meeting him in Barnet?",
+      answer: "Jack took Oliver to an old gentleman's house, which was actually Fagin's hideout."
+    },
+    {
+      question: "What did Oliver see when he woke up at Fagin's place?",
+      answer: "Oliver saw Fagin with a box full of expensive objects, such as rings and watches."
+    },
+    {
+      question: "What was Fagin's activity with Dodger and Bates that Oliver witnessed?",
+      answer: "Fagin was training Dodger and Bates to pickpocket by pretending to steal from him."
+    },
+    {
+      question: "What happened when Oliver went out with Fagin and the boys the next day?",
+      answer: "Oliver witnessed Dodger steal from an old man and was mistakenly accused of being the thief."
+    },
+    {
+      question: "What happened when the old man realized Oliver wasn’t the thief?",
+      answer: "The old man, Mr. Brownlow, believed Oliver and took him home after clearing up the misunderstanding."
+    },
+    {
+      question: "What did Fagin and Sikes worry about after Oliver was taken in by Mr. Brownlow?",
+      answer: "Fagin and Sikes worried that Oliver would reveal their criminal activities to the police."
+    },
+    {
+      question: "How did Sikes manage to capture Oliver again?",
+      answer: "Sikes found Oliver while he was running an errand and dragged him back to Fagin's hideout."
+    },
+    {
+      question: "What did Fagin tell Oliver about a boy who tried to escape?",
+      answer: "Fagin told Oliver that the boy was hanged to frighten him."
+    },
+    {
+      question: "What did Sikes plan for Oliver regarding a robbery in Chertsey?",
+      answer: "Sikes planned to use Oliver to break into a house in Chertsey because Oliver was small enough to fit through a window."
+    },
+    {
+      question: "What happened to Oliver during the robbery attempt?",
+      answer: "Oliver was shot by Mr. Giles, a servant of the house, and left injured in a field."
+    },
+    {
+      question: "Where did Oliver go after being injured during the robbery?",
+      answer: "Oliver knocked on the door of the house where the robbery took place, and they took him in and called a doctor."
+    },
+    {
+      question: "How did Oliver’s life change after being taken in by the Maylies?",
+      answer: "Oliver was nursed back to health, taught to read and write, and lived happily with the Maylies."
+    },
+    {
+      question: "What illness did Rose Maylie suffer from, and how did Oliver help?",
+      answer: "Rose suffered from a serious illness, and Oliver delivered a letter to Dr. Losberne for help."
+    },
+    {
+      question: "What did Oliver see one night that scared him while living with the Maylies?",
+      answer: "Oliver saw Fagin at the window and shouted for help, but Dr. Losberne convinced him it was a dream."
+    },
+    {
+      question: "Who was the mysterious man Oliver saw at the inn, and what was his goal?",
+      answer: "The man was Monks, and he wanted to know about Oliver's mother to keep him from his inheritance."
+    },
+    {
+      question: "What did Monks discover about Oliver’s mother?",
+      answer: "Monks discovered that Oliver’s mother, Agnes, had a locket containing a wedding ring and some hair, which was sold by an old woman."
+    },
+    {
+      question: "What did Nancy overhear about Oliver while helping Sikes?",
+      answer: "Nancy overheard that Monks and Fagin were planning to harm Oliver."
+    },
+    {
+      question: "Who did Nancy secretly meet to tell about Fagin’s and Monks' plans?",
+      answer: "Nancy met Rose Maylie and told her about the plot to harm Oliver."
+    },
+    {
+      question: "What did Rose and Mr. Brownlow ask Nancy to do, and what was her response?",
+      answer: "They asked Nancy to tell everything to the police, but she refused, not wanting to betray Sikes."
+    },
+    {
+      question: "What did Noah Claypole witness that led to Nancy’s death?",
+      answer: "Noah saw Nancy secretly meeting with Rose and Mr. Brownlow and reported it to Fagin."
+    },
+    {
+      question: "How did Bill Sikes react when he found out about Nancy’s secret meeting?",
+      answer: "Sikes became enraged and murdered Nancy by striking her with a pistol."
+    },
+    {
+      question: "What did Sikes try to do after killing Nancy?",
+      answer: "Sikes tried to clean up the blood but eventually fled London."
+    },
+    {
+      question: "How did Sikes die while trying to escape from the police?",
+      answer: "Sikes accidentally hanged himself with a rope while trying to escape from a house surrounded by police."
+    },
+    {
+      question: "What did Mr. Brownlow reveal about Monks’ relationship with Oliver?",
+      answer: "Mr. Brownlow revealed that Monks was Oliver’s half-brother."
+    },
+    {
+      question: "What agreement did Mr. Brownlow make with Monks?",
+      answer: "Monks agreed to sign papers giving Oliver his share of their father’s inheritance."
+    },
+    {
+      question: "What did Mr. Bumble admit regarding Oliver's mother's locket?",
+      answer: "Mr. Bumble admitted that he had sold the locket that belonged to Oliver’s mother."
+    },
+    {
+      question: "Where were Toby Crackit and Charley Bates hiding after Fagin’s arrest?",
+      answer: "They were hiding in a house on Jacob's Island."
+    },
+    {
+      question: "How did Sikes’ dog lead the police to Sikes?",
+      answer: "Sikes’ dog returned to the hideout, leading the police to Sikes."
+    },
+    {
+      question: "What did Sikes accidentally do while trying to escape from the house?",
+      answer: "Sikes accidentally hanged himself while trying to lower himself with a rope."
+    },
+    {
+      question: "What was Fagin’s fate after being arrested?",
+      answer: "Fagin was sentenced to death for his crimes."
+    },
+    {
+      question: "What did Mr. Brownlow ask Fagin during their last visit?",
+      answer: "Mr. Brownlow asked Fagin about the location of the papers related to Oliver's inheritance."
+    },
+    {
+      question: "What happened to Monks after Oliver got his inheritance?",
+      answer: "Monks went to America, squandered his money, and eventually died in prison."
+    },
+    {
+      question: "What happened to Mr. Bumble and his wife?",
+      answer: "They were dismissed from their positions and ended up poor in the workhouse."
+    },
+    {
+      question: "What did Noah Claypole do after Nancy’s death?",
+      answer: "Noah became an informant for the police."
+    },
+    {
+      question: "Where did Oliver live after the events of the story?",
+      answer: "Oliver lived with Mr. Brownlow as his adopted son in a country house."
+    },
+    {
+      question: "How was Oliver’s mother remembered after the events?",
+      answer: "A white stone was placed on Agnes' grave to honor her memory."
     }
   ];
+  
   
   audio.currentTime;
   btnAudio.addEventListener("click", function () {
